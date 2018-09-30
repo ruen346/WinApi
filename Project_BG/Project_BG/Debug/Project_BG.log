@@ -1,0 +1,10 @@
+﻿  main.cpp
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(79): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(55): warning C4101: 'oldBrush' :참조되지 않은 지역 변수입니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(55): warning C4101: 'hBrush' :참조되지 않은 지역 변수입니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(54): warning C4101: 'hPen' :참조되지 않은 지역 변수입니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(51): warning C4101: 'rect' :참조되지 않은 지역 변수입니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(54): warning C4101: 'oldPen' :참조되지 않은 지역 변수입니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(52): warning C4101: 'set' :참조되지 않은 지역 변수입니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(49): warning C4101: 'memdc' :참조되지 않은 지역 변수입니다.
+  Project_BG.vcxproj -> C:\Users\rnrjs\Desktop\개발\WinApi\Project_BG\Debug\Project_BG.exe
