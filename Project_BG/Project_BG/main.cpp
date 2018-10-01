@@ -3,9 +3,10 @@
 #include "basic.h"
 
 
-CImage character[2];
+CImage character[3];
 CImage ball_sp;
 CImage back;
+CImage charge;
 
 
 //윈도우를 위한 기본 코드//
@@ -66,13 +67,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		character[0].Load(LoadText);
 		sprintf(LoadText, "sprite\\ch_swing.png");
 		character[1].Load(LoadText);
+		character[2].Load(LoadText);
 
 		sprintf(LoadText, "sprite\\ball.png");
 		ball_sp.Load(LoadText);
 
-
 		sprintf(LoadText, "sprite\\back.png");
 		back.Load(LoadText);
+
+		sprintf(LoadText, "sprite\\charge.png");
+		charge.Load(LoadText);
 
 
 		//변수 초기화//
@@ -161,9 +165,32 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			{
 				if (ch1.x < ball.x && ch1.x + 160 > ball.x && ch1.y + 40 > ball.y && ch1.y - 80 < ball.y)
 				{
+					if (ch1.charge == 1)
+					{
+						ball.gravity = 12;
+						ball.speed = 40;
+					}
+					else if (ch1.charge == 2)
+					{
+						ball.gravity = 12;
+						ball.speed = 40;
+					}
+					else if (ch1.charge == 3)
+					{
+						ball.gravity = 12;
+						ball.speed = 40;
+					}
 					ball.move = 2;
-					ball.gravity = 12;
-					ball.speed = 40;
+					ball.delta = 100;
+				}
+			}
+			else if (ch1.play == 2)
+			{
+				if (ch1.x < ball.x && ch1.x + 160 > ball.x && ch1.y + 40 > ball.y && ch1.y - 80 < ball.y)
+				{
+					ball.move = 2;
+					ball.gravity = 17;
+					ball.speed = 30;
 					ball.delta = 100;
 				}
 			}
@@ -177,18 +204,37 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 					ball.delta = 100;
 				}
 			}
+			if (ch2.play == 2)
+			{
+				if (ch2.x + 80 > ball.x && ch2.x - 160 + 80 < ball.x && ch2.y + 40 > ball.y && ch2.y - 80 < ball.y)
+				{
+					ball.move = 1;
+					ball.gravity = 17;
+					ball.speed = 30;
+					ball.delta = 100;
+				}
+			}
 
 			InvalidateRect(hWnd, NULL, FALSE);
 		}break;
 		case 2: //스윙 ch1
 		{
 			ch1.play = 0;
+			ch1.charge = 0;
 			KillTimer(hWnd, 2);
 		}break;
 		case 3: //스윙 ch2
 		{
 			ch2.play = 0;
 			KillTimer(hWnd, 3);
+		}break;
+		case 4: //차지 ch1
+		{
+			if (ch1.charge_now == 1)
+			{
+				if (ch1.charge < 3)
+					ch1.charge++;
+			}
 		}break;
 		}
 	}break;
@@ -204,10 +250,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			ch1.up = 1;
 			ch1.gravity = 30;
 		}
-		if ((wParam == 'G' || wParam == 'g') && ch1.play == 0)
+		if ((wParam == 'G' || wParam == 'g') && ch1.play == 0 && ch1.charge_now == 0)
 		{
-			ch1.play = 1;
-			SetTimer(hWnd, 2, 500, NULL);
+			ch1.charge_now = 1;
+			ch1.charge = 1;
+			SetTimer(hWnd, 4, 1000, NULL);
+		}
+		if ((wParam == 'H' || wParam == 'h') && ch1.play == 0 && ch1.charge_now == 0)
+		{
+			ch1.charge_now = 1;
+			ch1.charge = 1;
+			SetTimer(hWnd, 4, 1000, NULL);
 		}
 		if (wParam == VK_LEFT)
 			ch2.left = 1;
@@ -217,11 +270,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		{
 			ch2.up = 1;
 			ch2.gravity = 30;
-		}
-		if (wParam == '1' && ch2.play == 0)
-		{
-			ch2.play = 1;
-			SetTimer(hWnd, 3, 500, NULL);
 		}
 
 		if (wParam == 'p' || wParam == 'P')
@@ -241,10 +289,32 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			ch1.left = 0;
 		if (wParam == 'D' || wParam == 'd')
 			ch1.right = 0;
+		if ((wParam == 'G' || wParam == 'g') && ch1.play == 0)
+		{
+			ch1.charge_now = 0;
+			ch1.play = 1;
+			SetTimer(hWnd, 2, 500, NULL);
+		}
+		if ((wParam == 'H' || wParam == 'h') && ch1.play == 0)
+		{
+			ch1.charge_now = 0;
+			ch1.play = 2;
+			SetTimer(hWnd, 2, 500, NULL);
+		}
 		if (wParam == VK_LEFT)
 			ch2.left = 0;
 		if (wParam == VK_RIGHT)
 			ch2.right = 0;
+		if (wParam == '1' && ch2.play == 0)
+		{
+			ch2.play = 1;
+			SetTimer(hWnd, 3, 500, NULL);
+		}
+		if (wParam == '2' && ch2.play == 0)
+		{
+			ch2.play = 2;
+			SetTimer(hWnd, 3, 500, NULL);
+		}
 	}break;
 
 	case WM_PAINT:
@@ -259,6 +329,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		character[ch1.play].Draw(memDC, ch1.x, ch1.y, 80, 100, 0, 0, 80, 100);
 		character[ch2.play].Draw(memDC, ch2.x, ch2.y, 80, 100, 0, 0, 80, 100);
 		ball_sp.Draw(memDC, ball.x, ball.y, 25, 25, 0, 0, 25, 25);
+
+		for (int i = 0; i < ch1.charge; i++)
+			charge.Draw(memDC, 50 + i * 40, 1030, 30, 100, 0, 0, 30, 100);
 
 
 		BitBlt(hdc, 0, 0, window_x, window_y, memDC, 0, 0, SRCCOPY);

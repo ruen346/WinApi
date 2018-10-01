@@ -12,7 +12,9 @@ public:
 	int left = 0;
 	int right = 0;
 	int up = 0;
-	int play = 0; //1.포핸드
+	int play = 0; //1.포핸드 2.백핸드
+	int charge_now = 0; //차지중
+	int charge = 0; //차지단계
 
 	int gravity = 0; //중력
 };
