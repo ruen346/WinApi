@@ -226,6 +226,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		case 3: //스윙 ch2
 		{
 			ch2.play = 0;
+			ch2.charge = 0;
 			KillTimer(hWnd, 3);
 		}break;
 		case 4: //차지 ch1
@@ -234,6 +235,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			{
 				if (ch1.charge < 3)
 					ch1.charge++;
+			}
+		}break;
+		case 5: //차지 ch2
+		{
+			if (ch2.charge_now == 1)
+			{
+				if (ch2.charge < 3)
+					ch2.charge++;
 			}
 		}break;
 		}
@@ -254,13 +263,25 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		{
 			ch1.charge_now = 1;
 			ch1.charge = 1;
-			SetTimer(hWnd, 4, 1000, NULL);
+			SetTimer(hWnd, 4, 500, NULL);
 		}
 		if ((wParam == 'H' || wParam == 'h') && ch1.play == 0 && ch1.charge_now == 0)
 		{
 			ch1.charge_now = 1;
 			ch1.charge = 1;
-			SetTimer(hWnd, 4, 1000, NULL);
+			SetTimer(hWnd, 4, 500, NULL);
+		}
+		if (wParam == '1' && ch2.play == 0 && ch2.charge_now == 0)
+		{
+			ch2.charge_now = 1;
+			ch2.charge = 1;
+			SetTimer(hWnd, 5, 500, NULL);
+		}
+		if (wParam == '2' && ch2.play == 0 && ch2.charge_now == 0)
+		{
+			ch2.charge_now = 1;
+			ch2.charge = 1;
+			SetTimer(hWnd, 5, 500, NULL);
 		}
 		if (wParam == VK_LEFT)
 			ch2.left = 1;
@@ -301,20 +322,22 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			ch1.play = 2;
 			SetTimer(hWnd, 2, 500, NULL);
 		}
-		if (wParam == VK_LEFT)
-			ch2.left = 0;
-		if (wParam == VK_RIGHT)
-			ch2.right = 0;
 		if (wParam == '1' && ch2.play == 0)
 		{
+			ch2.charge_now = 0;
 			ch2.play = 1;
 			SetTimer(hWnd, 3, 500, NULL);
 		}
 		if (wParam == '2' && ch2.play == 0)
 		{
+			ch2.charge_now = 0;
 			ch2.play = 2;
 			SetTimer(hWnd, 3, 500, NULL);
 		}
+		if (wParam == VK_LEFT)
+			ch2.left = 0;
+		if (wParam == VK_RIGHT)
+			ch2.right = 0;
 	}break;
 
 	case WM_PAINT:
@@ -331,7 +354,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		ball_sp.Draw(memDC, ball.x, ball.y, 25, 25, 0, 0, 25, 25);
 
 		for (int i = 0; i < ch1.charge; i++)
-			charge.Draw(memDC, 50 + i * 40, 1030, 30, 100, 0, 0, 30, 100);
+			charge.Draw(memDC, 50 + i * 40, 930, 30, 100, 0, 0, 30, 100);
+		for (int i = 0; i < ch2.charge; i++)
+			charge.Draw(memDC, 1700 + i * 40, 930, 30, 100, 0, 0, 30, 100);
 
 
 		BitBlt(hdc, 0, 0, window_x, window_y, memDC, 0, 0, SRCCOPY);
