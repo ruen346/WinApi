@@ -371,7 +371,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 	}break;
 
-	case WM_MOUSEMOVE:
+	     case WM_MOUSEMOVE:
 	{
 		mouse_x = LOWORD(lParam);
 		mouse_y = HIWORD(lParam);
