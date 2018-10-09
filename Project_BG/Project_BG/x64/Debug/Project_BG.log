@@ -1,19 +1,37 @@
 ﻿  main.cpp
-c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(98): warning C4244: 'return': 'WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(250): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(509): warning C4244: '-=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(510): warning C4244: '-=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(514): warning C4244: '+=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(515): warning C4244: '-=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(111): warning C4101: 'oldBrush' :참조되지 않은 지역 변수입니다.
-c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(111): warning C4101: 'hBrush' :참조되지 않은 지역 변수입니다.
-c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(110): warning C4101: 'hPen' :참조되지 않은 지역 변수입니다.
-c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(107): warning C4101: 'rect' :참조되지 않은 지역 변수입니다.
-c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(110): warning C4101: 'oldPen' :참조되지 않은 지역 변수입니다.
-c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(108): warning C4101: 'set' :참조되지 않은 지역 변수입니다.
-c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(105): warning C4101: 'memdc' :참조되지 않은 지역 변수입니다.
-c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(69): warning C4715: 'Ball::play1_gravity': 모든 제어 경로에서 값을 반환하지는 않습니다.
-c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(87): warning C4715: 'Ball::play2_gravity': 모든 제어 경로에서 값을 반환하지는 않습니다.
-c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(96): warning C4715: 'Ball::play2_speed': 모든 제어 경로에서 값을 반환하지는 않습니다.
-c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(78): warning C4715: 'Ball::play1_speed': 모든 제어 경로에서 값을 반환하지는 않습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(66): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(68): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(70): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(75): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(77): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(79): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(84): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(86): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(88): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(93): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(95): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(97): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(125): warning C4244: 'return': 'WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(362): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(666): warning C4244: '-=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(667): warning C4244: '-=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(679): warning C4244: '+=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(680): warning C4244: '-=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(797): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(804): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(831): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(838): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(865): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(872): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(899): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(906): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(1303): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(1307): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(134): warning C4101: 'rect' :참조되지 않은 지역 변수입니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(135): warning C4101: 'set' :참조되지 않은 지역 변수입니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\main.cpp(132): warning C4101: 'memdc' :참조되지 않은 지역 변수입니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(80): warning C4715: 'Ball::play1_speed': 모든 제어 경로에서 값을 반환하지는 않습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(71): warning C4715: 'Ball::play1_gravity': 모든 제어 경로에서 값을 반환하지는 않습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(89): warning C4715: 'Ball::play2_gravity': 모든 제어 경로에서 값을 반환하지는 않습니다.
+c:\users\rnrjs\desktop\개발\winapi\project_bg\project_bg\variable.h(98): warning C4715: 'Ball::play2_speed': 모든 제어 경로에서 값을 반환하지는 않습니다.
   Project_BG.vcxproj -> C:\Users\rnrjs\Desktop\개발\WinApi\Project_BG\x64\Debug\Project_BG.exe

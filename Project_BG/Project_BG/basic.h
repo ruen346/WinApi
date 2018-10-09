@@ -11,6 +11,10 @@
 #include <time.h>
 #include <atlImage.h> 
 #include <MMSystem.h> 
+
+#include <fmod.h> 
+#pragma comment (lib, "fmod_vc.lib")
+
 #pragma comment(lib, "msimg32.lib")
 #pragma comment(lib, "winmm.lib")
 using namespace std;
@@ -18,6 +22,7 @@ using namespace std;
 HINSTANCE g_hInst;
 LPCTSTR lpszClass = "Window Class Name";
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+
 
 //기본코드
 int window_x = 1920;
