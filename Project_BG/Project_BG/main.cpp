@@ -453,7 +453,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 							}
 						}
 
-						if (ball.x > 1920 / 2 + 320 && ball.y < ch2.y + start_y - 100 && ch2.charge_what != 2 && ball.speed > 25)//점프
+						if (ball.x > 1920 / 2 + 280 && ball.y < ch2.y + start_y - 100 && ch2.charge_what != 2 && ball.speed > 25)//점프
 						{
 							if (ch2.up == 0 && ch2.plays == 0)
 							{
@@ -478,7 +478,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 						else if (ch2.skill == 1)
 							ai_skill1++;
 
-						if (ball.speed > 18 || ball.x > 1920 / 2 + 400 || (ball.speed < 10 && ball.gravity < -3))//포핸드차지
+						if (ball.speed > 18 || ball.x > 1920 / 2 + 300 || (ball.speed < 10 && ball.gravity < -3))//포핸드차지
 						{
 							if (ball.x > 1920 / 2 && ball.x > ch2.x + start_x - 140 && ball.y > 480 + start_y - 140 && ch2.plays == 0 && ch2.charge_now == 0 && ball.gravity < 0 && ch2.skill == 0 && ch2.skill_gauge < 1)//차지
 							{
@@ -575,6 +575,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 					ball_pa_sp--;
 				if (ball_pa2_sp != 0)
 					ball_pa2_sp--;
+				if (perfect_pa_sp != 0)
+					perfect_pa_sp--;
 
 
 				//이동
@@ -797,6 +799,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 								ch1.skill_gauge += 0.3;
 							else
 								ch1.skill_gauge = 3.0;
+
+							perfect_pa_sp = 15;
+							perfect_pa_x = ball.x + 50;
+							perfect_pa_y = ball.y - 50;
 						}
 						else
 						{
@@ -831,6 +837,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 								ch1.skill_gauge += 0.3;
 							else
 								ch1.skill_gauge = 3.0;
+
+							perfect_pa_sp = 15;
+							perfect_pa_x = ball.x + 50;
+							perfect_pa_y = ball.y - 50;
 						}
 						else
 						{
@@ -865,6 +875,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 								ch2.skill_gauge += 0.3;
 							else
 								ch2.skill_gauge = 3.0;
+
+							perfect_pa_sp = 15;
+							perfect_pa_x = ball.x - 130;
+							perfect_pa_y = ball.y - 50;
 						}
 						else
 						{
@@ -899,6 +913,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 								ch2.skill_gauge += 0.3;
 							else
 								ch2.skill_gauge = 3.0;
+
+							perfect_pa_sp = 15;
+							perfect_pa_x = ball.x - 130;
+							perfect_pa_y = ball.y - 50;
 						}
 						else
 						{
@@ -1027,9 +1045,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 				}
 
 				if (set_score_1 == 2)
+				{
 					wins_sp = 1;
+					InvalidateRect(hWnd, NULL, FALSE);
+					KillTimer(hWnd, 1);
+				}
 				else if (set_score_2 == 2)
+				{
 					wins_sp = 2;
+					InvalidateRect(hWnd, NULL, FALSE);
+					KillTimer(hWnd, 1);
+				}
 			}
 
 			InvalidateRect(hWnd, NULL, FALSE);
@@ -1466,6 +1492,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 				crash_ball_sp.Draw(memDC, ball_pa_x - 10, ball_pa_y - 12, 51, 62, 0, 0, 51, 62);
 			if (ball_pa2_sp != 0)
 				crash_ball2_sp.Draw(memDC, ball_pa2_x, ball_pa2_y, 104, 126, 0, 0, 104, 126);
+			if (perfect_pa_sp != 0)
+				perfect_sp.Draw(memDC, perfect_pa_x, perfect_pa_y, 82, 58, 0, 0, 82, 58);
 
 			int gogogo = 0;
 			if (ball.gravity > 0)
@@ -1530,23 +1558,24 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
 		if (background == 0)
 		{
-			if (mouse_x > 312 && mouse_x < 312 + 1296 && mouse_y > 400 && mouse_y < 400 + 173)
-			{
-				background = 1;
-				play_mod = 1;
-			}
-			else if (mouse_x > 312 && mouse_x < 312 + 1296 && mouse_y > 600 && mouse_y < 600 + 173)
-			{
-				background = 1;
-				play_mod = 2;
-			}
-			else if (mouse_x > 312 && mouse_x < 312 + 630 && mouse_y > 800 && mouse_y < 800 + 173)
-				how1_sp = 1;
-			else if (mouse_x > 978 && mouse_x < 978 + 630 && mouse_y > 800 && mouse_y < 800 + 173)
-				exit(1);
-
 			if (how1_sp == 0)
 			{
+				if (mouse_x > 312 && mouse_x < 312 + 1296 && mouse_y > 400 && mouse_y < 400 + 173)
+				{
+					background = 1;
+					play_mod = 1;
+				}
+				else if (mouse_x > 312 && mouse_x < 312 + 1296 && mouse_y > 600 && mouse_y < 600 + 173)
+				{
+					background = 1;
+					play_mod = 2;
+				}
+				else if (mouse_x > 312 && mouse_x < 312 + 630 && mouse_y > 800 && mouse_y < 800 + 173)
+					how1_sp = 1;
+				else if (mouse_x > 978 && mouse_x < 978 + 630 && mouse_y > 800 && mouse_y < 800 + 173)
+					exit(1);
+
+
 				if (mouse_x > 43 && mouse_x < 43 + 1834 && mouse_y > 20 && mouse_y < 20 + 1040)
 					how1_sp = 1;
 			}
@@ -1555,6 +1584,50 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 				if (mouse_x > 1320 && mouse_x < 1320 + 504 && mouse_y > 860 && mouse_y < 860 + 135)
 					how1_sp = 0;
 			}
+		}
+		else if(wins_sp != 0)
+		{
+			background = 0;
+
+
+			//초기화/////////////////////////
+			ai_charge = 0;
+			ai_skill1 = 0;
+			ai_serve = 50;
+
+			score_1 = 0;
+			score_2 = 0;
+			set_score_1 = 0;
+			set_score_2 = 0;
+			turn = 0;
+			play_mod = 1;
+
+			ball_pa_sp = 0;
+			ball_pa_x = 0;
+			ball_pa_y = 0;
+			ball_pa2_sp = 0;
+			ball_pa2_x = 0;
+			ball_pa2_y = 0;
+
+			perfect_pa_sp = 0;
+			perfect_pa_x = 0;
+			perfect_pa_y = 0;
+
+			background = 0;
+
+			button1_sp = 0;
+			button2_sp = 0;
+			button3_sp = 0;
+			button4_sp = 0;
+
+			how1_sp = 0;
+			how2_sp = 0;
+
+			wins_sp = 0;
+			////////////////////////////////////
+
+
+			SetTimer(hWnd, 1, prame, NULL);
 		}
 	}break;
 

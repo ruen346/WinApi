@@ -119,6 +119,9 @@ int ball_pa2_sp = 0;
 int ball_pa2_x = 0;//스킬용
 int ball_pa2_y = 0;//스킬용
 
+int perfect_pa_sp = 0;
+int perfect_pa_x = 0;
+int perfect_pa_y = 0;
 
 int background = 0; //0.메뉴 1.게임
 
